@@ -23,6 +23,12 @@ public class ShiroConfig {
         return securityManager;
     }
 
+    /**
+     * 注册SpringMVC过滤器
+     * @param securityManager
+     * @param filter
+     * @return
+     */
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager, OAuth2Filter filter) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();

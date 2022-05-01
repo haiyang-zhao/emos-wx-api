@@ -3,6 +3,7 @@ package com.zhy.emos.wx.config.shiro;
 import cn.hutool.core.util.StrUtil;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
@@ -14,6 +15,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 @Scope("prototype") //表示多例
+@Slf4j
 public class OAuth2Filter extends AuthenticatingFilter {
 
     @Autowired
@@ -36,6 +40,12 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Override
+    public void doFilterInternal(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+        log.debug("OAuth2Filter---->");
+        super.doFilterInternal(request, response, chain);
+    }
 
     @Override
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {

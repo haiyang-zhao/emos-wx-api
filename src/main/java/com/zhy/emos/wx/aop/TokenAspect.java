@@ -3,6 +3,7 @@ package com.zhy.emos.wx.aop;
 
 import com.zhy.emos.wx.common.util.R;
 import com.zhy.emos.wx.config.shiro.ThreadLocalToken;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
+@Slf4j
 public class TokenAspect {
 
     @Autowired
@@ -21,7 +23,7 @@ public class TokenAspect {
     //拦截com.zhy.emos.wx.controller下所有方法
     @Pointcut("execution(public * com.zhy.emos.wx.controller.*.*(..))")
     public void aspect() {
-
+        log.debug("TokenAspect--->aspect");
     }
 
     //Around 方法执行前后和执行后都可以拦截

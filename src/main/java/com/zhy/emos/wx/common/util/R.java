@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class R extends HashMap<String, Object> {
     public R() {
-        put("code", HttpStatus.OK);
+        put("code", HttpStatus.OK.value());
         put("msg", "success");
     }
 

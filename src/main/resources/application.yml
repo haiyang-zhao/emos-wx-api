@@ -73,3 +73,7 @@ emos:
     expire: 5
     #缓存时间（天）
     cache-expire: 10
+
+wx:
+  app-id: wx380b3cb1ddd10fb3
+  app-secret: 9f097f6420485cfaaa6fbfe4e45842bf

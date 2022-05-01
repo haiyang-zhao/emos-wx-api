@@ -73,7 +73,7 @@ public class TbUser implements Serializable {
     /**
      * 状态
      */
-    private Byte status;
+    private boolean status;
 
     /**
      * 创建时间

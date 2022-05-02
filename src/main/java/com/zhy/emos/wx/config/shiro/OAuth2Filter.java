@@ -61,10 +61,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
         HttpServletRequest req = (HttpServletRequest) request;
         //options请求不拦截
-        if (req.getMethod().equals(RequestMethod.OPTIONS.name())) {
-            return true;
-        }
-        return super.isAccessAllowed(request, response, mappedValue);
+        return req.getMethod().equals(RequestMethod.OPTIONS.name());
     }
 
     @Override
@@ -105,7 +102,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
                 resp.getWriter().println("认证过期");
                 return false;
             }
-        } catch (JWTDecodeException e) {
+        } catch (Exception e) {
             //Token无效
             resp.setStatus(HttpStatus.UNAUTHORIZED.value());
             resp.getWriter().println("无效Token");

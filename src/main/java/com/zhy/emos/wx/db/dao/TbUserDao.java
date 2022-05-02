@@ -1,5 +1,6 @@
 package com.zhy.emos.wx.db.dao;
 
+import com.zhy.emos.wx.db.pojo.TbUser;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;
@@ -15,5 +16,5 @@ public interface TbUserDao {
 
     Set<String> searchUserPermissions(int userId);
 
-
+    TbUser searchById(int userId);
 }

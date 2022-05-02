@@ -1,12 +1,15 @@
 package com.zhy.emos.wx.db.pojo;
 
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * tb_checkin
- * @author 
+ *
+ * @author
  */
 @Data
 public class TbCheckin implements Serializable {
@@ -58,12 +61,12 @@ public class TbCheckin implements Serializable {
     /**
      * 签到日期
      */
-    private Date date;
+    private LocalDate date;
 
     /**
      * 签到时间
      */
-    private Date createTime;
+    private LocalDateTime createTime;
 
     private static final long serialVersionUID = 1L;
 }

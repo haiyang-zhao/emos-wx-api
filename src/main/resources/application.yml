@@ -49,6 +49,11 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  mail:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    username: zhy060307@163.com
+    password: NHDSUDADYBYOEEYF  #授权码
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
@@ -73,6 +78,16 @@ emos:
     expire: 5
     #缓存时间（天）
     cache-expire: 10
+  face:
+    can-use: false
+    create-face-url: http://192.168.31.58:3000/create_face_model
+    checkin-url: http://192.168.31.58:3000/checkin
+  email:
+    system: zhy060307@163.com
+    hr: zhy060307@gmail.com
+
+  image-folder: /Users/mactty/tmp/image
+  code: HelloWorld
 
 wx:
   app-id: wx380b3cb1ddd10fb3

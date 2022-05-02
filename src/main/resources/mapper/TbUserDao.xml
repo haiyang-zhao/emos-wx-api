@@ -78,6 +78,13 @@
         WHERE id = #{userId}
           AND status = 1
     </select>
+    <select id="searchNameAndDept" parameterType="int" resultType="hashmap">
+        SELECT u.name, d.dept_name
+        FROM tb_user u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+        WHERE u.id = #{userId}
+          AND u.status = 1
+    </select>
 
 
 </mapper>

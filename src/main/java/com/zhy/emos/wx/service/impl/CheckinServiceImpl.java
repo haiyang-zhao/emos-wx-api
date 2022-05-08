@@ -29,6 +29,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 @Scope("prototype")
@@ -228,5 +229,21 @@ public class CheckinServiceImpl implements CheckinService {
         entity.setFaceModel(body);
         faceModelDao.insert(entity);
 
+    }
+
+    @Override
+    public HashMap<String, Object> searchTodayCheckin(int userId) {
+        return checkinDao.searchTodayCheckin(userId);
+    }
+
+    @Override
+    public long searchCheckinDays(int userId) {
+        return checkinDao.searchCheckinDays(userId);
+    }
+
+    @Override
+    public List<HashMap<String, Object>> searchWeekCheckin(HashMap<String, Object> param) {
+        List<HashMap<String, Object>> hashMaps = checkinDao.searchWeekCheckin(param);
+        return hashMaps;
     }
 }

@@ -4,6 +4,13 @@
     <select id="searchToadyIsWorkday" resultType="java.lang.Integer">
         SELECT id
         FROM tb_workday
-        WHERE date = CURRENT_DATE LIMIT 1;
+        WHERE date = CURRENT_DATE
+        LIMIT 1;
+    </select>
+
+    <select id="searchWorkdayInRange" parameterType="hashmap" resultType="String">
+        SELECT date
+        FROM tb_workday
+        WHERE date BETWEEN #{startDate} AND #{endDate}
     </select>
 </mapper>
